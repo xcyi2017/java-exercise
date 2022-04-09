@@ -1,3 +1,4 @@
+package exercise.day1.src;
 import java.io.*;
 import java.util.Scanner;
 /*
