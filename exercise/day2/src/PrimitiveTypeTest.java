@@ -1,3 +1,4 @@
+package exercise.day2.src;
 import javax.print.DocFlavor;
 
 public class PrimitiveTypeTest {
