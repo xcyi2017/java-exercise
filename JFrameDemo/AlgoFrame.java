@@ -2,17 +2,12 @@ package JFrameDemo;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.geom.Ellipse2D;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.BasicStroke;
+import java.awt.*;
+
 
 public class AlgoFrame extends JFrame {
-    private int canvasWidth;
-    private int canvasHeight;
+    private final int canvasWidth;
+    private final int canvasHeight;
 
     public AlgoFrame(String title, int canvasWidth, int canvasHeight) {
         super(title);
@@ -22,13 +17,11 @@ public class AlgoFrame extends JFrame {
 
         AlgoCanvas canvas = new AlgoCanvas();
 
-        // this.setSize(canvasWidth, canvasHeight);
-        // canvas.setPreferredSize(new Dimension(canvasWidth, canvasHeight));
-
         setContentPane(canvas);
         pack();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         this.setVisible(true);
     }
 
@@ -71,20 +64,15 @@ public class AlgoFrame extends JFrame {
 
             // 具体绘制
             AlgoVisHelper.setStrokeWidth(g2d, 1);
-            AlgoVisHelper.setColor(g2d, Color.RED);
+            AlgoVisHelper.setColor(g2d, templates.AlgoVisHelper.LightGreen);
 
             for (Circle circle : circles) {
-                // System.out.println(circle.x + circle.y + circle.getR());
-                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
-
-            }
-
-            for (int i = 0; i < circles.length; i++) {
-                for (int j = 0; j < circles.length; j++) {
-                    if (i != j) {
-                        circles[i].checkCollision_(circles[j]);
-                    }
+                if (!circle.isFilled) {
+                    AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                } else {
+                    AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getR());
                 }
+
             }
         }
 

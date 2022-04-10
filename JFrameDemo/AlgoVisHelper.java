@@ -10,8 +10,7 @@ public class AlgoVisHelper {
     }
 
     public static void setStrokeWidth(Graphics2D g2d, int w) {
-        int strokeWidth = w;
-        g2d.setStroke(new BasicStroke(strokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g2d.setStroke(new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
     }
 
     public static void strokeCircle(Graphics2D g2d, int x, int y, int r) {
@@ -36,20 +35,20 @@ public class AlgoVisHelper {
         }
     }
 
-    public static boolean isCollision(Circle circle1, Circle circle2) {
-        int dx = circle1.x - circle2.x;
-        int dy = circle1.y - circle2.y;
-        int R2 = circle1.getR() + circle2.getR();
-        return dx * dx + dy * dy < R2 * R2;
-    }
+    // public static boolean isCollision(Circle circle1, Circle circle2) {
+    //     int dx = circle1.x - circle2.x;
+    //     int dy = circle1.y - circle2.y;
+    //     int R2 = circle1.getR() + circle2.getR();
+    //     return dx * dx + dy * dy < R2 * R2;
+    // }
 
-    public static boolean checkIsValid(Circle[] circles, Circle circle) {
-        for (Circle cir : circles) {
-            if (cir == null) break;
-            if (AlgoVisHelper.isCollision(cir, circle)) {
-                return false;
-            }
-        }
-        return true;
-    }
+    // public static boolean checkIsValid(Circle[] circles, Circle circle) {
+    //     for (Circle cir : circles) {
+    //         if (cir == null) break;
+    //         if (AlgoVisHelper.isCollision(cir, circle)) {
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
 }

@@ -1,9 +1,12 @@
 package JFrameDemo;
 
+import java.awt.*;
+
 public class Circle {
     public int x, y;
-    private int r;
+    private final int r;
     public int vx, vy;
+    public boolean isFilled = false;
 
     public Circle(int x, int y, int r, int vx, int vy) {
         this.x = x;
@@ -43,19 +46,8 @@ public class Circle {
         }
     }
 
-    // 两球之间碰撞检测
-    public void checkCollision_(Circle circle) {
-        int dx = this.x - circle.x;
-        int dy = this.y - circle.y;
-        double distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance <= this.r + circle.getR()) {
-            // System.out.println("碰撞了");
-            // vx = -vx;
-            // vy = -vy;
-        
-            circle.vx = -circle.vx;
-            circle.vy = -circle.vy;
-        }
+    public boolean contain(Point p) {
+        return (x - p.x) * (x - p.x) + (y - p.y) * (y - p.y) <= r * r;
     }
 
 }

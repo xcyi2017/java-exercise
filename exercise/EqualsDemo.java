@@ -1,10 +1,9 @@
 package exercise;
-import javax.tools.Diagnostic;
 
 public class EqualsDemo {
     public static void main(String[] args) {
-        String a = new String("ab"); // a为一个引用
-        String b = new String("ab"); // b为另一个引用
+        String a = "ab"; // a为一个引用
+        String b = "ab"; // b为另一个引用
 
         String aa = "ab"; // 放在常量池中
         String bb = "ab"; // 常量池中查找
@@ -15,8 +14,8 @@ public class EqualsDemo {
             System.out.println("a==b");
         if (a.equals(b)) // true 对象内容相同
             System.out.println("aEQb");
-        if (42 == 42.0) // true
-            System.out.println("true");
+        // if (42 == 42.0) // true
+        //     System.out.println("true");
 
         Dog dog = new Dog("A");
         System.out.println(dog.getObjectAddress());
