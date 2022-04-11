@@ -7,7 +7,7 @@ public class Main {
         int sceneWidth = 800;
         int sceneHeight = 800;
 
-        int N = 20;
+        int N = 2000;
 
         new AlgoVisualizer(sceneWidth, sceneHeight, N);
     }
